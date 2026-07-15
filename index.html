@@ -220,8 +220,10 @@ section{position:relative;z-index:2}
 
 /* MATERIALS */
 .mat-wrap{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.mat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px}
-.mat{position:relative;background:#ffffff;border:1px solid var(--ekos-blue);border-radius:14px;padding:22px 18px 20px;cursor:default;overflow:hidden;
+.mat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 22px}
+@media(max-width:760px){.mat-grid{grid-template-columns:1fr}}
+.mat{position:relative;background:#ffffff;border:1px solid var(--ekos-blue);border-radius:12px;padding:13px 20px;cursor:default;overflow:hidden;
+  display:flex;align-items:center;gap:16px;
   opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .45s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .3s}
 .mat-grid.in .mat{opacity:1;transform:none}
 .mat-grid.in .mat:nth-child(2){transition-delay:.05s}
@@ -234,20 +236,20 @@ section{position:relative;z-index:2}
 .mat-grid.in .mat:nth-child(9){transition-delay:.4s}
 .mat-grid.in .mat:nth-child(10){transition-delay:.45s}
 .mat-grid.in .mat:nth-child(11){transition-delay:.5s}
-.mat::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orange),var(--orange2));transform:scaleX(0);transform-origin:left;transition:transform .35s;z-index:3}
+.mat::before{content:"";position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--orange),var(--orange2));transform:scaleY(0);transform-origin:top;transition:transform .35s;z-index:3}
 .mat::after{content:"";position:absolute;top:0;bottom:0;left:-70%;width:55%;background:linear-gradient(105deg,transparent,rgba(30,64,175,.08),transparent);transform:skewX(-18deg);transition:left .65s ease;pointer-events:none;z-index:2}
-.mat:hover{border-color:var(--orange);transform:translateY(-6px);transition-delay:0s;
-  box-shadow:0 16px 38px rgba(13,21,38,.1),0 0 24px rgba(255,106,19,.12),inset 0 0 0 1px rgba(255,106,19,.18)}
-.mat:hover::before{transform:scaleX(1)}
+.mat:hover{border-color:var(--orange);transform:translateX(5px);transition-delay:0s;
+  box-shadow:0 10px 26px rgba(13,21,38,.08),0 0 24px rgba(255,106,19,.1),inset 0 0 0 1px rgba(255,106,19,.18)}
+.mat:hover::before{transform:scaleY(1)}
 .mat:hover::after{left:130%}
-.mat .mi{position:relative;width:44px;height:44px;border-radius:11px;background:rgba(255,106,19,.1);border:1px solid rgba(255,106,19,.25);
-  display:flex;align-items:center;justify-content:center;margin-bottom:15px;transition:.3s cubic-bezier(.2,.7,.2,1)}
+.mat .mi{position:relative;flex-shrink:0;width:42px;height:42px;border-radius:11px;background:rgba(255,106,19,.1);border:1px solid rgba(255,106,19,.25);
+  display:flex;align-items:center;justify-content:center;transition:.3s cubic-bezier(.2,.7,.2,1)}
 .mat .mi svg{width:21px;height:21px;stroke:var(--orange);stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
 .mat:hover .mi{background:var(--orange);border-color:var(--orange);transform:scale(1.1) rotate(-4deg);box-shadow:0 8px 22px rgba(255,106,19,.45)}
 .mat:hover .mi svg{stroke:#0a0a0b}
-.mat h4{font-size:14px;font-weight:700;margin-bottom:3px;transition:color .3s}
+.mat h4{font-size:14.5px;font-weight:700;transition:color .3s;white-space:nowrap}
 .mat:hover h4{color:var(--orange2)}
-.mat span{font-size:11px;color:var(--txt3);font-family:var(--ff-m)}
+.mat span{font-size:11px;color:var(--txt3);font-family:var(--ff-m);margin-left:auto;text-align:right}
 
 /* PROCESSES */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
