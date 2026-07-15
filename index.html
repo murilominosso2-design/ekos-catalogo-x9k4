@@ -443,7 +443,7 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
     <div class="hero-media">
       <div class="hero-img-wrap" id="heroFlip">
         <div class="hero-face hero-front"><img id="heroFaceA" src="img/ekos-hero-1.webp" alt="Placa de identificação e segurança industrial Ekos" width="900" height="1200" decoding="async" loading="eager" fetchpriority="high"></div>
-        <div class="hero-face hero-back"><img id="heroFaceB" src="img/ekos-hero-2.webp" alt="" width="900" height="1200" decoding="async" aria-hidden="true"></div>
+        <div class="hero-face hero-back"><img id="heroFaceB" src="img/ekos-hero-1.webp" alt="" width="900" height="1200" decoding="async" aria-hidden="true"></div>
       </div>
     </div>
   </div>
@@ -868,7 +868,7 @@ navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu))
   const faceA=document.getElementById('heroFaceA');
   const faceB=document.getElementById('heroFaceB');
   if(!flip||!faceA||!faceB) return;
-  const plates=['img/ekos-hero-1.webp','img/ekos-hero-2.webp'];
+  const plates=['img/ekos-hero-1.webp'];
   plates.forEach(src=>{const i=new Image();i.src=src;});   // pré-carrega todas
   if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;  // sem giro p/ quem prefere
   let angle=0, next=2, paused=false, last=null;
