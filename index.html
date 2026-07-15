@@ -339,10 +339,37 @@ input.fin::placeholder,textarea.fin::placeholder{color:var(--txt3)}
 .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
 /* CATÁLOGO PDF */
-.cat-band{background:#0a0a0b;padding:74px 0;text-align:center;border-top:1px solid var(--line)}
-.cat-band .eyebrow{justify-content:center}
-.cat-band h2{color:#f4f4f2;font-size:clamp(24px,3.6vw,40px);font-weight:900;letter-spacing:-.02em;line-height:1.05;max-width:660px;margin:14px auto 12px}
-.cat-band p{color:#aeb4c2;font-size:15px;max-width:540px;margin:0 auto 30px}
+.cat-band{position:relative;background:#0a0a0b;padding:96px 0;overflow:hidden}
+.cat-stripe{position:absolute;top:0;left:0;right:0;height:12px;
+  background:repeating-linear-gradient(-45deg,var(--orange) 0 20px,#0a0a0b 20px 40px)}
+.cat-band::before{content:"";position:absolute;top:-30%;right:-12%;width:680px;height:680px;border-radius:50%;
+  background:radial-gradient(circle,var(--glow),transparent 65%);filter:blur(46px);pointer-events:none}
+.cat-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative}
+.cat-band h2{color:#f4f4f2;font-size:clamp(30px,4.2vw,50px);font-weight:900;letter-spacing:-.025em;line-height:1.02;margin:18px 0 14px}
+.cat-band h2 .o{color:var(--orange)}
+.cat-band .cat-lead{color:#aeb4c2;font-size:15.5px;max-width:460px;margin-bottom:28px;line-height:1.7}
+.cat-stats{display:flex;gap:12px;margin-bottom:32px;flex-wrap:wrap}
+.cs{background:#131316;border:1px solid #2a2a32;border-radius:10px;padding:13px 20px;min-width:108px}
+.cs b{display:block;font-family:var(--ff-d);font-size:26px;font-weight:900;color:var(--orange);line-height:1}
+.cs span{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#8b93a2;margin-top:4px;display:block}
+.cat-btn{font-size:14.5px;padding:17px 32px;animation:catPulse 2.2s ease-out infinite}
+@keyframes catPulse{0%{box-shadow:0 0 0 0 rgba(255,106,19,.5)}70%{box-shadow:0 0 0 20px rgba(255,106,19,0)}100%{box-shadow:0 0 0 0 rgba(255,106,19,0)}}
+.cat-fan{position:relative;display:block;height:460px}
+.cat-fan img{position:absolute;top:50%;left:50%;width:min(290px,56%);height:auto;border-radius:8px;
+  border:1px solid #2a2a32;box-shadow:0 30px 60px rgba(0,0,0,.6);transition:.45s cubic-bezier(.2,.7,.2,1)}
+.cat-fan .f1{transform:translate(-92%,-50%) rotate(-9deg)}
+.cat-fan .f2{transform:translate(-8%,-48%) rotate(9deg)}
+.cat-fan .f0{transform:translate(-50%,-52%) scale(1.08);z-index:2;
+  box-shadow:0 40px 90px rgba(0,0,0,.75),0 0 70px rgba(255,106,19,.28)}
+.cat-fan:hover .f1{transform:translate(-102%,-52%) rotate(-14deg)}
+.cat-fan:hover .f2{transform:translate(2%,-50%) rotate(14deg)}
+.cat-fan:hover .f0{transform:translate(-50%,-56%) scale(1.13)}
+@media(max-width:860px){
+  .cat-grid{grid-template-columns:1fr;gap:36px}
+  .cat-fan{height:340px;order:-1}
+  .cat-fan img{width:min(220px,52%)}
+}
+@media(prefers-reduced-motion:reduce){.cat-btn{animation:none}.cat-fan img{transition:none}}
 
 /* FOOTER */
 footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28px}
@@ -711,11 +738,24 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
 
 <!-- CATÁLOGO PDF -->
 <section class="cat-band" id="catalogo">
-  <div class="wrap">
-    <span class="eyebrow">Catálogo completo</span>
-    <h2 class="reveal">Mais de 570 modelos de placas prontos para personalizar.</h2>
-    <p class="reveal">Segurança, fotoluminescentes, tubulação, patrimônio, ambientes e muito mais — tudo produzido com o seu texto, o seu logo e o material que o seu ambiente exige.</p>
-    <a class="btn reveal" href="catalogo/" target="_blank" rel="noopener">Abrir o catálogo completo</a>
+  <div class="cat-stripe" aria-hidden="true"></div>
+  <div class="wrap cat-grid">
+    <div class="cat-copy reveal">
+      <span class="eyebrow">Catálogo completo</span>
+      <h2><span class="o">+570 modelos</span> de placas prontos para personalizar.</h2>
+      <p class="cat-lead">Segurança, fotoluminescentes, tubulação, patrimônio, ambientes e muito mais — tudo produzido com o seu texto, o seu logo e o material que o seu ambiente exige.</p>
+      <div class="cat-stats">
+        <div class="cs"><b>+570</b><span>modelos</span></div>
+        <div class="cs"><b>21</b><span>páginas</span></div>
+        <div class="cs"><b>100%</b><span>personalizável</span></div>
+      </div>
+      <a class="btn cat-btn" href="catalogo/" target="_blank" rel="noopener">Abrir o catálogo completo&nbsp;&nbsp;→</a>
+    </div>
+    <a class="cat-fan reveal" href="catalogo/" target="_blank" rel="noopener" aria-label="Abrir o catálogo completo">
+      <img class="f1" src="img/cat-mock-2.webp" alt="" width="440" height="622" loading="lazy" decoding="async">
+      <img class="f2" src="img/cat-mock-3.webp" alt="" width="440" height="622" loading="lazy" decoding="async">
+      <img class="f0" src="img/cat-mock-1.webp" alt="Capa do Catálogo de Produtos EKOS — Placas de Sinalização" width="440" height="622" loading="lazy" decoding="async">
+    </a>
   </div>
 </section>
 
