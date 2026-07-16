@@ -76,7 +76,8 @@
       { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Placas com logotipo" } },
       { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Etiquetas industriais" } },
       { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Placas de aviso e segurança" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Painéis e identificação de máquina" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Painéis e identificação de máquina" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Displays em acrílico" } }
     ]
   }
 }
@@ -198,6 +199,7 @@ section{position:relative;z-index:2}
 
 /* PRODUCT CARDS — aspect-ratio 4:3 enforced on image */
 .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(min-width:941px){.prod-grid .card:last-child:nth-child(3n+1){grid-column:2}}
 @media(max-width:940px){.prod-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:580px){.prod-grid{grid-template-columns:1fr}}
 .card{background:var(--surface);border:1px solid var(--ekos-blue);border-radius:14px;overflow:hidden;
@@ -522,6 +524,15 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
         <div class="body">
           <h3>Painéis e identificação de máquina</h3>
           <p>Membranas e painéis de comando que organizam, padronizam e facilitam a operação e manutenção de equipamentos.</p>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="ph">
+          <img src="img/ekos-displays-acrilico.webp" alt="Displays em acrílico" width="800" height="600" decoding="async" loading="lazy">
+        </div>
+        <div class="body">
+          <h3>Displays em acrílico</h3>
+          <p>Displays, porta-folhetos e peças em acrílico cristal, com corte e dobra sob medida para balcão e comunicação.</p>
         </div>
       </div>
 
