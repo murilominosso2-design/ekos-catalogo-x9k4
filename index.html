@@ -406,6 +406,15 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
   .mat::after{display:none}
 }
 
+/* === IMPLEMENTOS RODOVIÁRIOS === */
+.imp-band{background:#10151f;padding:88px 0}
+.imp-band .sec-head h2{color:#fff}
+.imp-band .sec-head p{color:#9aa3b8}
+.imp-grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:32px 40px;margin:48px 0 42px}
+.imp-grid img{max-width:100%;height:auto;filter:drop-shadow(0 16px 26px rgba(0,0,0,.55));transition:transform .35s}
+.imp-grid img:hover{transform:translateY(-7px) rotate(-1.5deg) scale(1.04)}
+@media(max-width:580px){.imp-grid{gap:22px}}
+
 /* === ANIMAÇÕES v2 === */
 /* esteira infinita de categorias */
 .tick{overflow:hidden;background:var(--txt);transform:rotate(-1.2deg) scale(1.03);padding:13px 0;margin:44px 0 14px;box-shadow:0 12px 32px rgba(13,21,38,.22)}
@@ -448,6 +457,7 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
       <a href="#materiais">Materiais</a>
       <a href="#processos">Processos</a>
       <a href="#aplicacoes">Aplicações</a>
+      <a href="#implementos">Implementos</a>
       <a href="#orcamento">Orçamento</a>
       <a href="#orcamento" class="btn nav-cta-mobile">Solicitar orçamento</a>
     </nav>
@@ -601,6 +611,28 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
         <div class="ph"><img src="img/ekos-app-audio-alarme.webp?v=3" alt="Áudio e sistemas de alarme" width="800" height="600" decoding="async" loading="lazy"></div>
         <div class="body"><h3>Áudio e sistemas de alarme</h3><p>Overlays e painéis para sirenes, centrais de som e sistemas de sinalização sonora.</p></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPLEMENTOS RODOVIÁRIOS -->
+<section class="imp-band" id="implementos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Implementos rodoviários</span>
+      <h2>Sua marca rodando o Brasil.</h2>
+      <p>Placas de identificação personalizadas para carrocerias, caminhões, furgões, utilitários, guindastes e plataformas — gravadas para encarar estrada, sol e chuva.</p>
+    </div>
+    <div class="imp-grid reveal">
+      <img src="img/imp-plate-1.webp" alt="Placa personalizada para implementos rodoviários — modelo clássico serifado" width="344" height="118" loading="lazy" decoding="async">
+      <img src="img/imp-plate-2.webp" alt="Placa personalizada para implementos rodoviários — modelo itálico bordô" width="330" height="108" loading="lazy" decoding="async">
+      <img src="img/imp-plate-3.webp" alt="Placa personalizada para implementos rodoviários — modelo bordô com telefone" width="400" height="104" loading="lazy" decoding="async">
+      <img src="img/imp-plate-4.webp" alt="Placa personalizada para implementos rodoviários — modelo branco com logotipo" width="356" height="112" loading="lazy" decoding="async">
+      <img src="img/imp-plate-5.webp" alt="Placa personalizada para plataformas e guinchos" width="372" height="100" loading="lazy" decoding="async">
+      <img src="img/imp-plate-6.webp" alt="Plaqueta de dados do implemento — número, ano e capacidade" width="168" height="118" loading="lazy" decoding="async">
+    </div>
+    <div class="reveal" style="text-align:center">
+      <a class="btn" href="#orcamento">Quero a minha placa&nbsp;&nbsp;→</a>
     </div>
   </div>
 </section>
