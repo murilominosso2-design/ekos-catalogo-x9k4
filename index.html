@@ -405,6 +405,35 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
   .mat{opacity:1!important;transform:none!important;transition:none!important}
   .mat::after{display:none}
 }
+
+/* === ANIMAÇÕES v2 === */
+/* esteira infinita de categorias */
+.tick{overflow:hidden;background:var(--txt);transform:rotate(-1.2deg) scale(1.03);padding:13px 0;margin:44px 0 14px;box-shadow:0 12px 32px rgba(13,21,38,.22)}
+.tick-track{display:flex;align-items:center;width:max-content;animation:tickMove 32s linear infinite}
+.tick-track span{color:#fff;font-family:var(--ff-m);font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;white-space:nowrap;margin-right:38px}
+.tick-track i{color:var(--orange);font-style:normal;font-size:11px;margin-right:38px}
+.tick:hover .tick-track{animation-play-state:paused}
+@keyframes tickMove{to{transform:translateX(-50%)}}
+/* brilho varrendo os botões */
+.btn{position:relative;overflow:hidden}
+.btn::before{content:"";position:absolute;top:0;left:-90%;width:55%;height:100%;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.5),transparent);
+  transform:skewX(-20deg);pointer-events:none}
+.btn:hover::before{animation:btnShine .75s ease}
+@keyframes btnShine{to{left:140%}}
+/* cascata na entrada dos cards */
+.prod-grid .card:nth-child(3n+2){transition-delay:.09s}
+.prod-grid .card:nth-child(3n){transition-delay:.18s}
+.prod-grid .card:hover{transition-delay:0s}
+/* sublinhado que se desenha no título do catálogo */
+.cat-copy h2 .o{background:linear-gradient(var(--orange2),var(--orange2)) no-repeat left 96%/0% 3px;
+  transition:background-size .8s .45s cubic-bezier(.2,.7,.2,1)}
+.cat-copy.in h2 .o{background-size:100% 3px}
+@media(prefers-reduced-motion:reduce){
+  .tick-track{animation:none}
+  .btn:hover::before{animation:none}
+  .prod-grid .card{transition-delay:0s}
+}
 </style>
 </head>
 <body>
@@ -474,7 +503,7 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
     <div class="prod-grid">
       <div class="card reveal">
         <div class="ph">
-          <img src="img/ekos-placas-metalicas.webp?v=2" alt="Placas metálicas" width="800" height="600" decoding="async" loading="lazy">
+          <img src="img/ekos-placas-metalicas.webp?v=3" alt="Placas metálicas" width="800" height="600" decoding="async" loading="lazy">
         </div>
         <div class="body">
           <h3>Placas metálicas</h3>
@@ -483,7 +512,7 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
       </div>
       <div class="card reveal">
         <div class="ph">
-          <img src="img/ekos-etiquetas-patrimoniais.webp?v=2" alt="Etiquetas patrimoniais" width="800" height="600" decoding="async" loading="lazy">
+          <img src="img/ekos-etiquetas-patrimoniais.webp?v=3" alt="Etiquetas patrimoniais" width="800" height="600" decoding="async" loading="lazy">
         </div>
         <div class="body">
           <h3>Etiquetas patrimoniais</h3>
@@ -492,7 +521,7 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
       </div>
       <div class="card reveal">
         <div class="ph">
-          <img src="img/ekos-placas-logotipo.webp?v=2" alt="Placas com logotipo" width="800" height="600" decoding="async" loading="lazy">
+          <img src="img/ekos-placas-logotipo.webp?v=3" alt="Placas com logotipo" width="800" height="600" decoding="async" loading="lazy">
         </div>
         <div class="body">
           <h3>Placas com logotipo</h3>
@@ -501,7 +530,7 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
       </div>
       <div class="card reveal">
         <div class="ph">
-          <img src="img/ekos-etiquetas-industriais.webp?v=2" alt="Etiquetas industriais" width="800" height="600" decoding="async" loading="lazy">
+          <img src="img/ekos-etiquetas-industriais.webp?v=3" alt="Etiquetas industriais" width="800" height="600" decoding="async" loading="lazy">
         </div>
         <div class="body">
           <h3>Etiquetas industriais</h3>
@@ -510,7 +539,7 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
       </div>
       <div class="card reveal">
         <div class="ph">
-          <img src="img/ekos-placas-aviso-seguranca.webp?v=2" alt="Placas de aviso / segurança" width="800" height="600" decoding="async" loading="lazy">
+          <img src="img/ekos-placas-aviso-seguranca.webp?v=3" alt="Placas de aviso / segurança" width="800" height="600" decoding="async" loading="lazy">
         </div>
         <div class="body">
           <h3>Placas de aviso / segurança</h3>
@@ -519,7 +548,7 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
       </div>
       <div class="card reveal">
         <div class="ph">
-          <img src="img/ekos-paineis-identificacao-maquina.webp?v=2" alt="Painéis e identificação de máquina" width="800" height="600" decoding="async" loading="lazy">
+          <img src="img/ekos-paineis-identificacao-maquina.webp?v=3" alt="Painéis e identificação de máquina" width="800" height="600" decoding="async" loading="lazy">
         </div>
         <div class="body">
           <h3>Painéis e identificação de máquina</h3>
@@ -528,7 +557,7 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
       </div>
       <div class="card reveal">
         <div class="ph">
-          <img src="img/ekos-displays-acrilico.webp" alt="Displays em acrílico" width="800" height="600" decoding="async" loading="lazy">
+          <img src="img/ekos-displays-acrilico.webp?v=3" alt="Displays em acrílico" width="800" height="600" decoding="async" loading="lazy">
         </div>
         <div class="body">
           <h3>Displays em acrílico</h3>
@@ -553,28 +582,35 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:52px 0 28p
         <div class="body"><h3>Identificação de máquinas</h3><p>Placas técnicas e painéis para especificações, comandos e identificação permanente de equipamentos.</p></div>
       </div>
       <div class="card reveal">
-        <div class="ph"><img src="img/ekos-app-paineis-eletricos.webp?v=2" alt="Painéis elétricos e de comando" width="800" height="600" decoding="async" loading="lazy"></div>
+        <div class="ph"><img src="img/ekos-app-paineis-eletricos.webp?v=3" alt="Painéis elétricos e de comando" width="800" height="600" decoding="async" loading="lazy"></div>
         <div class="body"><h3>Painéis elétricos e de comando</h3><p>Membranas e painéis de comando para circuitos e componentes — segurança e manutenção facilitada.</p></div>
       </div>
       <div class="card reveal">
-        <div class="ph"><img src="img/ekos-app-controle-patrimonial.webp?v=2" alt="Controle patrimonial" width="800" height="600" decoding="async" loading="lazy"></div>
+        <div class="ph"><img src="img/ekos-app-controle-patrimonial.webp?v=3" alt="Controle patrimonial" width="800" height="600" decoding="async" loading="lazy"></div>
         <div class="body"><h3>Controle patrimonial</h3><p>Tags e plaquetas resistentes com numeração, sequencial e código para seu sistema de gestão.</p></div>
       </div>
       <div class="card reveal">
-        <div class="ph"><img src="img/ekos-app-implementos-rodoviarios.webp" alt="Implementos rodoviários — placa personalizada com a sua marca" width="800" height="600" decoding="async" loading="lazy"></div>
+        <div class="ph"><img src="img/ekos-app-implementos-rodoviarios.webp?v=3" alt="Implementos rodoviários — placa personalizada com a sua marca" width="800" height="600" decoding="async" loading="lazy"></div>
         <div class="body"><h3>Implementos rodoviários</h3><p>Placas personalizadas com a sua marca para carrocerias, caminhões, furgões e utilitários — gravadas para resistir na estrada.</p></div>
       </div>
       <div class="card reveal">
-        <div class="ph"><img src="img/ekos-app-automacao-interfaces.webp?v=2" alt="Automação e interfaces" width="800" height="600" decoding="async" loading="lazy"></div>
+        <div class="ph"><img src="img/ekos-app-automacao-interfaces.webp?v=3" alt="Automação e interfaces" width="800" height="600" decoding="async" loading="lazy"></div>
         <div class="body"><h3>Automação e interfaces</h3><p>Membranas e teclados de comando para painéis de operação, automação e linhas de equipamento.</p></div>
       </div>
       <div class="card reveal">
-        <div class="ph"><img src="img/ekos-app-audio-alarme.webp?v=2" alt="Áudio e sistemas de alarme" width="800" height="600" decoding="async" loading="lazy"></div>
+        <div class="ph"><img src="img/ekos-app-audio-alarme.webp?v=3" alt="Áudio e sistemas de alarme" width="800" height="600" decoding="async" loading="lazy"></div>
         <div class="body"><h3>Áudio e sistemas de alarme</h3><p>Overlays e painéis para sirenes, centrais de som e sistemas de sinalização sonora.</p></div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ESTEIRA DE CATEGORIAS -->
+<div class="tick" aria-hidden="true">
+  <div class="tick-track">
+    <span>Placas de sinalização</span><i>◆</i><span>Fotoluminescentes</span><i>◆</i><span>Etiquetas patrimoniais</span><i>◆</i><span>Placas metálicas</span><i>◆</i><span>Tubulação</span><i>◆</i><span>Painéis de comando</span><i>◆</i><span>Implementos rodoviários</span><i>◆</i><span>Displays em acrílico</span><i>◆</i><span>Placas de sinalização</span><i>◆</i><span>Fotoluminescentes</span><i>◆</i><span>Etiquetas patrimoniais</span><i>◆</i><span>Placas metálicas</span><i>◆</i><span>Tubulação</span><i>◆</i><span>Painéis de comando</span><i>◆</i><span>Implementos rodoviários</span><i>◆</i><span>Displays em acrílico</span><i>◆</i>
+  </div>
+</div>
 
 <!-- CATÁLOGO PDF -->
 <section class="cat-band" id="catalogo">
@@ -873,7 +909,7 @@ navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu))
   const faceA=document.getElementById('heroFaceA');
   const faceB=document.getElementById('heroFaceB');
   if(!flip||!faceA||!faceB) return;
-  const plates=['img/ekos-hero-1.webp'];
+  const plates=['img/ekos-hero-1.webp','img/ekos-hero-2.webp'];
   plates.forEach(src=>{const i=new Image();i.src=src;});   // pré-carrega todas
   if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;  // sem giro p/ quem prefere
   let angle=0, next=2, paused=false, last=null;
@@ -894,6 +930,29 @@ navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu))
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
+})();
+
+/* contador animado dos números do catálogo */
+(function(){
+  const els=document.querySelectorAll('.cs b');
+  if(!els.length||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      io.unobserve(e.target);
+      const el=e.target, txt=el.textContent, num=parseInt(txt.replace(/\D/g,''),10);
+      if(!num)return;
+      const pre=txt.trim().startsWith('+')?'+':'', suf=txt.trim().endsWith('%')?'%':'';
+      const t0=performance.now(), dur=1300;
+      (function step(t){
+        const k=Math.min(((t||t0)-t0)/dur,1);
+        const ease=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+        el.textContent=pre+Math.round(num*ease)+suf;
+        if(k<1)requestAnimationFrame(step);
+      })();
+    });
+  },{threshold:.6});
+  els.forEach(el=>io.observe(el));
 })();
 </script>
 </body>
