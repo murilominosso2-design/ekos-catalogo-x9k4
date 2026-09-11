@@ -893,6 +893,10 @@ document.querySelectorAll('.opts').forEach(g=>{
   });
 });
 ['qty','prazo','obs'].forEach(id=>document.getElementById(id)?.addEventListener('input',update));
+// O botão nasce com href="#" e só ganhava o link do WhatsApp no primeiro
+// clique numa opção. Quem chegava do site pelo "MONTAR MEU PEDIDO" e clicava
+// direto recebia o próprio catálogo numa aba nova, e o pedido não chegava.
+update();
 
 function update(){
   const qty=document.getElementById('qty').value.trim();
